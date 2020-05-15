@@ -15,5 +15,5 @@ The input documents will be a text file containing all passwords and usernames f
 
 ## UML Diagram
 
-BillBot can be easily deployed by the use of the `makeabot` function. The use case of all the paramters can be seen the UML diagram below.
+BillBot can be easily deployed by the use of the `makeabot` function. The use case of all the paramters can be seen in the UML diagram below.
 ![UML Class Diagram for BillBot](https://github.com/cs100/final-project-rb/blob/master/diagrams/BillBot.png)
