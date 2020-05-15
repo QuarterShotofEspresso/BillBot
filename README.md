@@ -13,6 +13,6 @@ The API will be written entirely in Python3. A text messaging service developed 
 ## User Input / Output
 The input documents will be a text file containing all passwords and usernames for each billing site. An additional document will contain the phone numbers of all indivduals responsible for payments. The program's output is the sum from each service provider, operated upon by a function defined by the user and the totals are sent to each phone number listed in the second document.
 
-> API
-
-Billbot's API will be expanded as the project continues.
+> UML Diagram
+BillBot can be easily deployed by the use of the `makeabot` function. The use case of all the paramters can be seen the UML diagram below.
+![UML Class Diagram for BillBot](https://github.com/cs100/lab05-decoratorPattern/blob/master/images/decorator.png)
