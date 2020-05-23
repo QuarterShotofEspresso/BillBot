@@ -1,4 +1,10 @@
+from selenium import webdriver
+from BeautifulSoup import BeautifulSoup
+
+
 import NavigationStrat
+
+
 
 class Internet(NavigationStrat):
 
@@ -14,5 +20,10 @@ class Internet(NavigationStrat):
         self.siteURL = url
 
     # function implementation
-    def fetchTotal():
+    def fetchTotal(self):
+        driver = webdriver.Chrome("")
+        driver.get("https://www.spectrum.net")
+        content = drvier.page_source()
+        soup = BeautifulSoup(content)
+        
         return 0.0

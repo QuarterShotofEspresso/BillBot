@@ -4,14 +4,14 @@ import Gas          # implement Gas
 class BillBot:
     
     # variables
-    total
-    Message
+    _total
+    _Message
     siteURL
     filepath
     site
 
     # Constructor for BillBot base class
-    def __init__(msg, url, path, siteType):
+    def __init__(self, msg, url, path, siteType):
         self.total = 0
         self.Message = msg
         self.siteURL = url
@@ -20,8 +20,8 @@ class BillBot:
 
 
     # non virtual function collects data from file
-    def collectMetadata():
+    def collectMetadata(self):
+        pass # TODO: Implement this function
 
-
-    def printMessage():         # virtual function declaration
+    def printMessage(self):         # virtual function declaration
         raise NotImplementedError
