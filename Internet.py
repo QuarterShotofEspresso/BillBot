@@ -42,4 +42,4 @@ class Spectrum(NavigationStrat):
         #close driver
         driver.close()
 
-        return balance
+        return 'Spectrum:\t' + balance
