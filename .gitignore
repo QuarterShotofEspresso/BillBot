@@ -41,3 +41,4 @@ CMakeFiles
 # Files relavent to this project
 __pycache__
 init
+geckodriver.log
