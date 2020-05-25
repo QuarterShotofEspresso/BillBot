@@ -37,3 +37,7 @@ test
 # CMake Temp Files
 CMakeCache.txt
 CMakeFiles
+
+# Files relavent to this project
+__pycache__
+init
