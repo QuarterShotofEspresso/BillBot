@@ -1,0 +1,34 @@
+1590304582750	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWnDB5V"
+1590304583665	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590304585657	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590304585657	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590304585658	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590304585658	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590304589524	Marionette	INFO	Listening on port 45775
+1590304589573	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+JavaScript error: , line 0: UnknownError: The operation failed for reasons unrelated to the database itself and not covered by any other error code.
+1590304670111	Marionette	INFO	Stopped listening on port 45775
+1590304725523	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelHBgH2"
+1590304726349	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590304728250	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590304728250	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590304728250	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590304728250	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590304731468	Marionette	INFO	Listening on port 40851
+1590304731545	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+1590304759937	Marionette	INFO	Stopped listening on port 40851
+1590381394331	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHude60"
+1590381395533	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1590381397471	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1590381397471	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1590381397471	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1590381397471	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1590381401218	Marionette	INFO	Listening on port 42279
+1590381401284	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+JavaScript error: https://www.spectrum.net/js/scripts.79c5d2b73db0731e9e9d.js, line 1: ReferenceError: module is not defined
+1590381428482	Marionette	INFO	Stopped listening on port 42279

@@ -1,27 +1,16 @@
-import Internet     # implement Internet
-import Gas          # implement Gas
+from Internet import Spectrum     # implement Internet
+#import Gas          # implement Gas
 
 class BillBot:
     
     # variables
-    _total
     _Message
-    siteURL
-    filepath
-    site
+    __site
 
     # Constructor for BillBot base class
-    def __init__(self, msg, url, path, siteType):
-        self.total = 0
-        self.Message = msg
-        self.siteURL = url
-        self.filepath = path
-        self.site = siteType
-
-
-    # non virtual function collects data from file
-    def collectMetadata(self):
-        pass # TODO: Implement this function
+    def __init__(self, msg, site):
+        self._Message = msg
+        self.__site = site
 
     def printMessage(self):         # virtual function declaration
         raise NotImplementedError
