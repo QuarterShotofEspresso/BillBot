@@ -1,3 +1,5 @@
+import json
+
 class BillBot:
     
     # variables
@@ -9,5 +11,5 @@ class BillBot:
         self._Message = msg
         self._site = site
 
-    def printMessage(self):         # virtual function declaration
+    def print_message(self):         # virtual function declaration
         raise NotImplementedError

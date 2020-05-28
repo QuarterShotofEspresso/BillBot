@@ -1,4 +1,5 @@
 import base64
+import json
 import os
 from cryptography.fernet import Fernet
 from cryptography.hazmat.backends import default_backend
@@ -10,13 +11,18 @@ class NavigationStrat:
 
     # private varaibles
     __salt = b'h1\xf7\xdb\xf5\xebA(e\xa9\xf2\x9c\xde\x01\xb1\x9d'
+    __LOGIN_DATA_FILEPATH = './login_data.json' # file path to loginin data 
 
-
-    def fetch_total():
+    def fetch_total(self):
         raise NotImplementedError
 
 
-    def fetch_key( self, password_string ):
+    def load_login_dictionary(self):
+        fio_suite = open(self.__LOGIN_DATA_FILEPATH, 'r')
+        return json.load(fio_suite)
+
+
+    def fetch_key(self, password_string):
 
         # stetch password 
         kdf = PBKDF2HMAC(
@@ -28,14 +34,13 @@ class NavigationStrat:
         )
 
         # extend the password and encode in b64
-        key =  base64.urlsafe_b64encode(kdf.derive( password_string.encode() ))
+        key =  base64.urlsafe_b64encode(kdf.derive(password_string.encode()))
 
         return key
 
 
-
     # called by strategies
-    def decrypt_login( self, encrypted_user_login_bytes = [] ):
+    def decrypt_login(self, encrypted_user_login_bytes = []):
         
         decrypted_user_login = []
 
@@ -50,15 +55,13 @@ class NavigationStrat:
 
         # return decrypted user login
         for user_login_element in encrypted_user_login_bytes:
-            decrypted_user_login.append( encryption_suite.decrypt(user_login_element).decode() )
+            decrypted_user_login.append(encryption_suite.decrypt(user_login_element.encode()).decode())
 
         return decrypted_user_login
 
 
-
-
     # easier to encrypt login information
-    def encrypt_login( self, user_login = [] ):
+    def encrypt_login(self, user_login = []):
 
         # retrieve password from user
         password = getpass()
@@ -71,8 +74,7 @@ class NavigationStrat:
 
         # decrypt user_login
         for user_login_element in user_login:
-            #print(user_login_element)
-            print( encryption_suite.encrypt( user_login_element.encode() ))
+            print(encryption_suite.encrypt(user_login_element.encode()).decode())
 
 
 

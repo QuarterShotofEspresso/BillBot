@@ -4,16 +4,16 @@ import time
 
 class Spectrum(NavigationStrat):
 
-    #variables
-    
-    # store excrypted login as [b'<username/email>', b'<password>']
-    __encrypted_login_data = [b'gAAAAABey0bs2nhXKVwK_PeYkiCAcVZUM-HBZWC6R259PlbIvvS71WYcdNh5KbEXqfAxsr9alBwfHa7nwopAbDuey73bqZgVNeb1pjzD_zSmPzY3xALhtmI=', b'gAAAAABey0bsdeD6RDNyhdFLNALEQwi6TmynbC8mOoVSBGUnfxgZbBu5yaSi8t-jkbEq-RbMWWya-DfKsOQ31aa9fgekuAQ2qJ7zQ0pDy2Y_T0XFmjbgHZU=']
+    #variables 
+    __encrypted_login_data = 0      # store excrypted login as [b'<username/email>', b'<password>']
+
 
     # function implementation
     def fetch_total(self):
         
-        # decrypt user login data
-        decrypted_login_data = self.decrypt_login( self.__encrypted_login_data )
+        # load and decrypt user login data
+        self.__encrypted_login_data = self.load_login_dictionary()['SPECTRUM']
+        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data)
 
         # create firefox driver
         driver = webdriver.Firefox()

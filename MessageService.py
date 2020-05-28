@@ -7,5 +7,5 @@ class MessageService(BillBot):
     def __init__(self, bill_bot_base):
         self._bill_bot_base = bill_bot_base
 
-    def printMessage(self):
+    def print_message(self):
         raise NotImplementedError
