@@ -11,7 +11,7 @@ class NavigationStrat:
 
     # private varaibles
     __salt = b'h1\xf7\xdb\xf5\xebA(e\xa9\xf2\x9c\xde\x01\xb1\x9d'
-    __LOGIN_DATA_FILEPATH = './login_data.json' # file path to loginin data 
+    __LOGIN_DATA_FILEPATH = './input/login_data.json' # file path to loginin data 
 
     def fetch_total(self):
         raise NotImplementedError
@@ -22,13 +22,14 @@ class NavigationStrat:
         return json.load(fio_suite)
 
 
-    def fetch_key(self, password_string):
+    @classmethod
+    def fetch_key(cls, password_string):
 
         # stetch password 
         kdf = PBKDF2HMAC(
                 algorithm = hashes.SHA256(),
                 length = 32,
-                salt = self.__salt,
+                salt = cls.__salt,
                 iterations = 100000,
                 backend = default_backend()
         )
@@ -40,12 +41,12 @@ class NavigationStrat:
 
 
     # called by strategies
-    def decrypt_login(self, encrypted_user_login_bytes = []):
+    def decrypt_login(self, encrypted_user_login_bytes = [], passprompt = 'Password: '):
         
         decrypted_user_login = []
 
         # retrieve password from user
-        password = getpass()
+        password = getpass(passprompt)
         
         # tranlsate password into key
         key = self.fetch_key( password )
@@ -61,20 +62,25 @@ class NavigationStrat:
 
 
     # easier to encrypt login information
-    def encrypt_login(self, user_login = []):
+    @classmethod
+    def encrypt_login(cls, user_login = []):
 
         # retrieve password from user
         password = getpass()
 
         # extend the password and encode in b64
-        key = self.fetch_key( password )
+        key = cls.fetch_key( password )
         
         # use password to make encryption_suite with Fernet
         encryption_suite = Fernet( key )
 
+        encrypted_login = []
+
         # decrypt user_login
         for user_login_element in user_login:
-            print(encryption_suite.encrypt(user_login_element.encode()).decode())
+            encrypted_login.append(encryption_suite.encrypt(user_login_element.encode()).decode())
+
+        print(encrypted_login)
 
 
 

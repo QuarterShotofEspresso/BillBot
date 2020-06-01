@@ -42,4 +42,4 @@ CMakeFiles
 __pycache__
 init
 geckodriver.log
-*.json
+input/*
