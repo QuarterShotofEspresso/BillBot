@@ -12,7 +12,7 @@ class Twilio(MessageService):
 
         fio_suite = open('./input/phone_numbers.json', 'r')
         self.__numbers = json.load(fio_suite)
-        self.__numbers = [self.__numbers[0]]  # modifiying line, only sending to myself NOTE::may want to add functionlity in the future to select specfic numbers
+        #self.__numbers = [self.__numbers[0]]  # modifiying line, only sending to myself NOTE::may want to add functionlity in the future to select specfic numbers
 
         balance_summary = self._bill_bot_base.print_message()
 
@@ -23,6 +23,9 @@ class Twilio(MessageService):
 
         client = Client(SID, TOKEN)
 
+        print('\nTexted balance_summary to:\n')
         for number in self.__numbers:
             client.messages.create(to = number, from_ = TWILIO_NUMBER, body = balance_summary)
+            print(number + '\n')
 
+        return balance_summary

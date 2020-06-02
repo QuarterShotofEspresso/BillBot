@@ -4,6 +4,7 @@ from Gas import SoCalGas
 from Electricity import PublicUtilities
 from Twilio import Twilio
 from Terminal import Terminal
+from Email import Email
 from ConcreteBot import ConcreteBot
 
 # bot factory class
@@ -45,7 +46,7 @@ class BillBotFactory:
             cls.__return_bot = Twilio(cls.__return_bot)
         elif (message_service_string.lower() == 'terminal'):
             cls.__return_bot = Terminal(cls.__return_bot)
-        elif (message_service_string.lower == 'email'):
+        elif (message_service_string.lower() == 'email'):
             cls.__return_bot = Email(cls.__return_bot)
         else:
             raise ValueError
