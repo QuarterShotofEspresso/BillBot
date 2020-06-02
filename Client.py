@@ -1,9 +1,12 @@
 from BillBotFactory import BillBotFactory
 
-message_services = ['terminal', 'email', 'twilio']
-services = ['socalgas', 'spectrum', 'publicutil']
-#services = ['socalgas']
-message_header = "Hellooo. It's me. Could abc and xyz pay the amount below:P"
+# Balance Summary contians: SoCalGas, Spectrum, PublicUtil
+services = []
+
+# Balance Summary can be delviered via terminal, email, twilio (text)
+message_services = []
+
+message_header = ""
 
 thesupabot = BillBotFactory.buildabot(message_services, services, message_header)
 thesupabot.print_message()
