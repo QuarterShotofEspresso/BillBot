@@ -25,7 +25,7 @@ SoCalGas Password:
 Spectrum Password: 
 Public Util Password: 
 ===================================
-Hellooo. It's me:P Could abc and xyz pls pay the amount below:P
+Hellooo. It's me. Could abc and xyz pls pay the amount below:P
 
 SoCalGas:	    $0.00
 Spectrum:	    $0.00

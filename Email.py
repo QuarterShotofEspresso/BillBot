@@ -23,7 +23,14 @@ class Email(MessageService):
         password = getpass('Email Password: ')
 
         server = smtplib.SMTP_SSL(smtp_server, port, context=context)
-        server.login(sender_email, password)
+
+        getitright = True
+        while getitright:
+            try:
+                server.login(sender_email, password)
+                getitright = False
+            except:
+                password = getpass('Email Password: ')
 
         print('\nEmailed balance_summary to:')
         for email in self.__emails:
