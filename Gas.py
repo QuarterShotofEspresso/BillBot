@@ -14,7 +14,7 @@ class SoCalGas(NavigationStrat):
         try:
             # load and decrypt user login data
             self.__encrypted_login_data = self.load_login_dictionary()['SOCALGAS']
-            decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'SoCal Password:')
+            decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'SoCalGas Password: ')
 
             # create firefox driver
             driver = webdriver.Firefox()
@@ -43,7 +43,7 @@ class SoCalGas(NavigationStrat):
             #close driver
             driver.close()
 
-            balance_numeric = float(balance[2:])
+            balance_numeric = float(balance[1:])
 
             return 'SoCalGas:\t' + balance, balance_numeric
 

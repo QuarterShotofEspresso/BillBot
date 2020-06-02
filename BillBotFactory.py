@@ -1,6 +1,7 @@
 from BillBot import BillBot
 from Internet import Spectrum
 from Gas import SoCalGas
+from Electricity import PublicUtilities
 from Twilio import Twilio
 from Terminal import Terminal
 from ConcreteBot import ConcreteBot
@@ -32,6 +33,8 @@ class BillBotFactory:
             cls.__service_list.append(SoCalGas())
         elif (service_string.lower() == 'spectrum'):
             cls.__service_list.append(Spectrum())
+        elif (service_string.lower() == 'publicutil'):
+            cls.__service_list.append(PublicUtilities())
         else:
             raise ValueError
 

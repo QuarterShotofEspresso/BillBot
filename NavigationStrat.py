@@ -41,12 +41,12 @@ class NavigationStrat:
 
 
     # called by strategies
-    def decrypt_login(self, encrypted_user_login_bytes = [], passprompt = 'Password: '):
+    def decrypt_login(self, encrypted_user_login_bytes = [], password_prompt = 'Password: '):
         
         decrypted_user_login = []
 
         # retrieve password from user
-        password = getpass(passprompt)
+        password = getpass(password_prompt)
         
         # tranlsate password into key
         key = self.fetch_key( password )

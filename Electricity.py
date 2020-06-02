@@ -2,7 +2,7 @@ from selenium import webdriver
 from NavigationStrat import NavigationStrat
 import time
 
-class Spectrum(NavigationStrat):
+class PublicUtilities(NavigationStrat):
 
     #variables 
     __encrypted_login_data = 0      # store excrypted login as [b'<username/email>', b'<password>']
@@ -10,42 +10,41 @@ class Spectrum(NavigationStrat):
 
     # function implementation
     def fetch_total(self):
-       
         # load and decrypt user login data
-        self.__encrypted_login_data = self.load_login_dictionary()['SPECTRUM']
-        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'Spectrum Password: ')
+        self.__encrypted_login_data = self.load_login_dictionary()['PUBLIC_UTIL']
+        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'Public Util Password: ')
 
         # create firefox driver
         driver = webdriver.Firefox()
-        driver.get('https://www.spectrum.net')
+        driver.get('https://billpay.riversideca.gov/')
 
         # wait for the page to load
         time.sleep(10)
 
         try:
             # find username entry element and fill in data
-            element = driver.find_element_by_id('cc-username')
+            element = driver.find_element_by_id('login:usernamedec:username')
             element.send_keys( decrypted_login_data[0] ) # send username
         
             # find password entry element and fill in data
-            element = driver.find_element_by_id('cc-user-password')
+            element = driver.find_element_by_id('login:j_id155:password')
             element.send_keys( decrypted_login_data[1] ) # send password
 
             # find 'Sign In' button and click
-            driver.find_element_by_class_name('kite-btn.kite-btn-lg.kite-btn-primary.kite-btn-light.dialog_button').click()
+            driver.find_element_by_id('login:j_id163').click()
 
             # wait for the page to load
             time.sleep(10)
 
             # return 'balance' string
-            balance = driver.find_element_by_class_name('balance').text
+            balance = driver.find_element_by_id('j_id173:j_id327').text
 
             #close driver
             driver.close()
 
             balance_numeric = float(balance[1:])
 
-            return 'Spectrum:\t' + balance, balance_numeric
+            return 'Public Util:\t' + balance, balance_numeric
 
         except:
-            return 'Spectrum ERR access fail', 0.00
+            return 'Public Util ERR access fail', 0.00
