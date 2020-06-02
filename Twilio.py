@@ -23,9 +23,9 @@ class Twilio(MessageService):
 
         client = Client(SID, TOKEN)
 
-        print('\nTexted balance_summary to:\n')
+        print('\nTexted balance_summary to:')
         for number in self.__numbers:
             client.messages.create(to = number, from_ = TWILIO_NUMBER, body = balance_summary)
-            print(number + '\n')
+            print(number)
 
         return balance_summary

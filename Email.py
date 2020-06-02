@@ -25,7 +25,7 @@ class Email(MessageService):
         server = smtplib.SMTP_SSL(smtp_server, port, context=context)
         server.login(sender_email, password)
 
-        print('\nEmailed balance_summary to:\n')
+        print('\nEmailed balance_summary to:')
         for email in self.__emails:
             server.sendmail(sender_email, email, 'Subject: Balance Summary\n\n' + balance_summary)
             print(email + '\n')
