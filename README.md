@@ -18,7 +18,7 @@ The input documents will be a text file containing all passwords and usernames f
 BillBot is made using a set of inherited scripts that are able to perform one of the following functionalities: Data Extraction, Resident Notification, and Message Customization. Of course, message customization isn't automated, but the user has the ability to write a unique message for the group and reuse the bot when necessary. Data Extraction is performed by the NavigationStrat class which has been developed with the strategy pattern. With the numerous sites that each have a unique layout requires a unique navigation technique to extract the correct data as quickly as possible. Each site's navigation technique can be defined by the user in a `fetchTotal` function which implements the abstract NavigationStrat class. There are a number of ways to deliver the finalized message. Perhaps the message should be sent in many possible means instead of a select few. For this reason, the MessageService class was designed using the Decorator Pattern. Any number of messaging services, ranging from terminal output to texts can be delivered. In order to ease client usage and increase development speed, BillBot was encased in a simple to use API that synthesizes a bot incredibly fast. The `makeabot` function can be passed with the site's URL, path to the file containing both the username and password to that site, messaging service, and the message itself.
 
 ## Final Report & Usage
-The following python3 libraries must be installed in order for BillBot to work: `json`, `getpass`, `selenium`, 'twilio', 'ssl`, and `smtplib`. Additionally, [geckodriver](https://github.com/mozilla/geckodriver/releases/tag/v0.26.0) needs to be installed for those intending to use webdriver to access their billing sites. A sample user program has been provided in `Client.py`. Notice that the existing NavigationStrat implmentations (Internet, Electricity, and Gas) can be reconfigured for the user's specific sites. I, for example, have designed those select programs to read the billing site's encrypted login information from a seperate json file stored on my computer, and then decrypt it using a password prompted for by the script. It is up to the user to define their navigation techinque starting from login information to data extraction and formating. Regarding Messaging Services, the user can choose exactly who all they would like to contact by adding their emails and/or phone numbers in the respective files under `input/`. In the `input` directory, there are some sample texts demonstrating exactly how this information should be formatted. Below is an image that illustrates the expected output corresponding to the sample use case in `Client.py`.
+The following python3 libraries must be installed in order for BillBot to work: `json`, `getpass`, `selenium`, `twilio`, `ssl`, and `smtplib`. Additionally, [geckodriver](https://github.com/mozilla/geckodriver/releases/tag/v0.26.0) needs to be installed for those intending to use webdriver to access their billing sites. A sample user program has been provided in `Client.py`. Notice that the existing NavigationStrat implmentations (Internet, Electricity, and Gas) can be reconfigured for the user's specific sites. I, for example, have designed those select programs to read the billing site's encrypted login information from a seperate json file stored on my computer, and then decrypt it using a password prompted for by the script. It is up to the user to define their navigation techinque starting from login information to data extraction and formating. Regarding Messaging Services, the user can choose exactly who all they would like to contact by adding their emails and/or phone numbers in the respective files under `input/`. In the `input` directory, there are some sample texts demonstrating exactly how this information should be formatted. Below is an image that illustrates the expected output corresponding to the sample use case in `Client.py`.
 ```
 example@example:~$ python3 Client.py
 SoCalGas Password: 
@@ -37,21 +37,16 @@ Email Account: <your_email>@gmail.com
 Email Password: 
 
 Emailed balance_summary to:
-
 <your_email>@gmail.com
 
-
 Texted balance_summary to:
-
-(number_1)
-
-(number_2)
-
-(number_3)
-
-(number_4)
-
+<number_1>
+<number_2>
+<number_3>
+<number_4>
 ```
 To give more description on how to use BillBot, there are three variables that need to be explained. The final line in `Client.py` is the method that executes the bot's function. The message that is created and sent is called the balance summary which descibes the total prices each billing service requests and the cumulative cost from all services. `message_services` contains a list of strings naming each method the user wishes to send the balance summary by.
-> Note: The order of the elements in `message_services` and `services` does not matter
+
+> Note: The order of the elements in `message_services` and `services` does not matter.
+
 `services` contains a list of strings naming each billing service balance summary should contain. Finally, `message_header` is optional and will be attatched at the beginning of the balance summary. If a particular site, or message service is not wanted, then delete that string from list. `BillBotFactory.buildabot()` is nearly tthe final step that takes variables described in the previous steps and spits out the billbot configured with the settings you've submitted. BillBot has been designed so when everything is configuered, the script will prompt the user for any necessary information. Hope it's fun to use!
