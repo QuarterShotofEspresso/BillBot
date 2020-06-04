@@ -9,12 +9,12 @@ class SoCalGas(NavigationStrat):
 
 
     # function implementation
-    def fetch_total(self):
+    def fetch_total(self, password):
 
         try:
             # load and decrypt user login data
             self.__encrypted_login_data = self.load_login_dictionary()['SOCALGAS']
-            decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'SoCalGas Password: ')
+            decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, password)
 
             # create firefox driver
             driver = webdriver.Firefox()

@@ -9,10 +9,10 @@ class PublicUtilities(NavigationStrat):
 
 
     # function implementation
-    def fetch_total(self):
+    def fetch_total(self, password):
         # load and decrypt user login data
         self.__encrypted_login_data = self.load_login_dictionary()['PUBLIC_UTIL']
-        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'Public Util Password: ')
+        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, password)
 
         # create firefox driver
         driver = webdriver.Firefox()

@@ -24,18 +24,21 @@ class Email(MessageService):
 
         server = smtplib.SMTP_SSL(smtp_server, port, context=context)
 
-        getitright = True
-        while getitright:
+        getitright = 0
+        while (getitright < 5):
             try:
                 server.login(sender_email, password)
-                getitright = False
             except:
-                password = getpass('Email Password: ')
+                password = getpass('Invalid Password (try again): ')
+                getitright = getitright + 1
 
-        print('\nEmailed balance_summary to:')
-        for email in self.__emails:
-            server.sendmail(sender_email, email, 'Subject: Balance Summary\n\n' + balance_summary)
-            print(email + '\n')
+        if (getitright < 5):
+            print('\nEmailed balance_summary to:')
+            for email in self.__emails:
+                server.sendmail(sender_email, email, 'Subject: Balance Summary\n\n' + balance_summary)
+                print(email + '\n')
+        else:
+            print('Too many invalid attempts. Skipping email service...')
 
         return balance_summary
 # Adapted from https://realpython.com/python-send-email/

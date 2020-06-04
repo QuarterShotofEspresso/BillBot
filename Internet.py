@@ -9,11 +9,11 @@ class Spectrum(NavigationStrat):
 
 
     # function implementation
-    def fetch_total(self):
+    def fetch_total(self, password):
        
         # load and decrypt user login data
         self.__encrypted_login_data = self.load_login_dictionary()['SPECTRUM']
-        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, 'Spectrum Password: ')
+        decrypted_login_data = self.decrypt_login(self.__encrypted_login_data, password)
 
         # create firefox driver
         driver = webdriver.Firefox()

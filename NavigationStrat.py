@@ -5,7 +5,6 @@ from cryptography.fernet import Fernet
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from getpass import getpass
 
 class NavigationStrat:
 
@@ -13,7 +12,7 @@ class NavigationStrat:
     __salt = b'h1\xf7\xdb\xf5\xebA(e\xa9\xf2\x9c\xde\x01\xb1\x9d'
     __LOGIN_DATA_FILEPATH = './input/login_data.json' # file path to loginin data 
 
-    def fetch_total(self):
+    def fetch_total(self, password):
         raise NotImplementedError
 
 
@@ -41,12 +40,12 @@ class NavigationStrat:
 
 
     # called by strategies
-    def decrypt_login(self, encrypted_user_login_bytes = [], password_prompt = 'Password: '):
+    def decrypt_login(self, encrypted_user_login_bytes = [], password = ''):
         
         decrypted_user_login = []
 
         # retrieve password from user
-        password = getpass(password_prompt)
+        # password = getpass(password_prompt)
         
         # tranlsate password into key
         key = self.fetch_key( password )
