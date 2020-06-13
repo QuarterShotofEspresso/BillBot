@@ -4,9 +4,9 @@ from BillBotFactory import BillBotFactory
 services = ['specTRum', 'socalgas', 'publicutil']
 
 # Balance Summary can be delviered via terminal, email, twilio (text)
-message_services = ['terminal', 'email', 'twilio']
+message_services = ['terminal', 'twilio']
 
-message_header = "Hey guys, It's me RB. Could pay these amounts pls."
+message_header = input("Message Header: ")
 
 thesupabot = BillBotFactory.buildabot(message_services, services, message_header)
 thesupabot.print_message()

@@ -10,7 +10,7 @@ class Twilio(MessageService):
 
     def print_message(self):
 
-        fio_suite = open('./input/phone_numbers.json', 'r')
+        fio_suite = open('/home/elvasio/Projects/billbot/input/phone_numbers.json', 'r')
         self.__numbers = json.load(fio_suite)
         #self.__numbers = [self.__numbers[0]]  # modifiying line, only sending to myself NOTE::may want to add functionlity in the future to select specfic numbers
 

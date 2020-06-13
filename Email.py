@@ -12,7 +12,7 @@ class Email(MessageService):
 
         balance_summary = self._bill_bot_base.print_message()
 
-        fio_suite = open('./input/emails.json', 'r')
+        fio_suite = open('/home/elvasio/Projects/billbot/input/emails.json', 'r')
         self.__emails = json.load(fio_suite)
 
         port = 465

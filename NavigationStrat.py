@@ -10,7 +10,7 @@ class NavigationStrat:
 
     # private varaibles
     __salt = b'h1\xf7\xdb\xf5\xebA(e\xa9\xf2\x9c\xde\x01\xb1\x9d'
-    __LOGIN_DATA_FILEPATH = './input/login_data.json' # file path to loginin data 
+    __LOGIN_DATA_FILEPATH = '/home/elvasio/Projects/billbot/input/login_data.json' # file path to loginin data 
 
     def fetch_total(self, password):
         raise NotImplementedError
