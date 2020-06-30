@@ -1,7 +1,7 @@
 from BillBotFactory import BillBotFactory
 
 # Balance Summary contians: SoCalGas, Spectrum, PublicUtil
-services = ['specTRum', 'socalgas', 'publicutil']
+services = ['specTRum', 'socalgas', 'publicutil', 'rent']
 
 # Balance Summary can be delviered via terminal, email, twilio (text)
 message_services = ['terminal', 'twilio']

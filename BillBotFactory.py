@@ -6,6 +6,7 @@ from Twilio import Twilio
 from Terminal import Terminal
 from Email import Email
 from ConcreteBot import ConcreteBot
+from Rent import Rent
 
 # bot factory class
 class BillBotFactory:
@@ -36,6 +37,8 @@ class BillBotFactory:
             cls.__service_list.append(Spectrum())
         elif (service_string.lower() == 'publicutil'):
             cls.__service_list.append(PublicUtilities())
+        elif (service_string.lower() == 'rent'):
+            cls.__service_list.append(Rent())
         else:
             raise ValueError
 
