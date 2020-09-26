@@ -37,7 +37,8 @@ class PublicUtilities(NavigationStrat):
             time.sleep(10)
 
             # return 'balance' string
-            balance = driver.find_element_by_id('j_id173:j_id327').text
+            balance = driver.find_element_by_id('j_id161:j_id315').text #NOTE: The ID seems to have changed for this element.
+                                                                        #TODO: Check to see if this script fails this site again
 
             #close driver
             driver.close()
