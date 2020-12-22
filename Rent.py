@@ -1,7 +1,7 @@
 from NavigationStrat import NavigationStrat
 class Rent(NavigationStrat):
 
-    self.balance = '$1710.00';
+    balance = '$1713.00';
 
     def fetch_total(self, password):
         

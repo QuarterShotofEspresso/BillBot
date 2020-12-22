@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from MessageService import MessageService
 from twilio.rest import Client
@@ -10,11 +11,15 @@ class Twilio(MessageService):
 
     def print_message(self):
 
+
         fio_suite = open('/home/elvasio/Projects/billbot/input/phone_numbers.json', 'r')
         self.__numbers = json.load(fio_suite)
         #self.__numbers = [self.__numbers[0]]  # modifiying line, only sending to myself NOTE::may want to add functionlity in the future to select specfic numbers
 
         balance_summary = self._bill_bot_base.print_message()
+        
+        if( '-s' in sys.argv ):
+            return balance_summary
 
         # collect all twilio related data
         SID = os.getenv('TWILIO_ACCOUNT_SID')

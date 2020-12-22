@@ -10,7 +10,11 @@ class Email(MessageService):
 
     def print_message(self):
 
+
         balance_summary = self._bill_bot_base.print_message()
+        
+        if( '-s' in sys.argv ):
+            return balance_summary
 
         fio_suite = open('/home/elvasio/Projects/billbot/input/emails.json', 'r')
         self.__emails = json.load(fio_suite)

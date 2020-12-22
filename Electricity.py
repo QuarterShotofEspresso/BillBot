@@ -1,6 +1,7 @@
 from selenium import webdriver
 from NavigationStrat import NavigationStrat
 import time
+import sys
 
 class PublicUtilities(NavigationStrat):
 
@@ -44,6 +45,11 @@ class PublicUtilities(NavigationStrat):
             driver.close()
 
             balance_numeric = float(balance[1:])
+
+            if('-s' in sys.argv):
+                self.saveAsPastData(sys.argv[1]+'electricity.past',balance_numeric)
+            else:
+                balance_numeric = self.checkMax(sys.argv[1]+'electricity.past',balance_numeric)
 
             return 'Public Util:\t' + balance, balance_numeric
 

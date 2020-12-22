@@ -1,4 +1,6 @@
+import sys
 from BillBot import BillBot
+
 
 class MessageService(BillBot):
     

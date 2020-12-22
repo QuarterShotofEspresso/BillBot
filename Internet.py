@@ -1,6 +1,8 @@
 from selenium import webdriver
 from NavigationStrat import NavigationStrat
 import time
+import sys
+import pdb
 
 class Spectrum(NavigationStrat):
 
@@ -44,8 +46,15 @@ class Spectrum(NavigationStrat):
             driver.close()
 
             balance_numeric = float(balance[1:])
+           
+            #pdb.set_trace()
+            if('-s' in sys.argv):
+                self.saveAsPastData(sys.argv[1]+'internet.past',balance_numeric)
+            else:
+                balance_numeric = self.checkMax(sys.argv[1]+'internet.past',balance_numeric)
 
             return 'Spectrum:\t' + balance, balance_numeric
 
-        except:
+        except Exception as e:
+            print(e)
             return 'Spectrum ERR access fail', 0.00

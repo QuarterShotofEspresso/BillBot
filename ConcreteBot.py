@@ -15,7 +15,7 @@ class ConcreteBot(BillBot):
 
         self._Message = '='*35 + '\n' + self._Message + '\n' + self.__cumulative_message + \
                 '\n' + ('-'*35) + '\nTotal: $' + str(self.__cumulative_total) + \
-                '\nTotal per Res.: $' + str(self.__cumulative_total / int(input("Divide bill by: ")))
+                '\nTotal per Res.: $' + str(round(self.__cumulative_total / int(input("Divide bill by: ")), 2))
 
         return (self._Message)
 

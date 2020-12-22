@@ -1,6 +1,7 @@
 import base64
 import json
 import os
+import sys
 from cryptography.fernet import Fernet
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
@@ -82,4 +83,14 @@ class NavigationStrat:
         print(encrypted_login)
 
 
+    # saveDataToFile to filepath if flag is set
+    def saveAsPastData(self, filepath, data):
+        with open(filepath, 'w+') as fp:
+            fp.write(str(data))
+
+    # check whether the collected data or past data should be displayed.
+    def checkMax(self, filepath, data):
+        with open(filepath, 'r') as fp:
+            pastData = fp.read()
+        return max(float(data), float(pastData))
 
